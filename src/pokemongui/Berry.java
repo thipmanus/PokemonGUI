@@ -18,7 +18,7 @@ public class Berry{
 		this.type = type;
 		switch(type){
 			case 0: this.name = "Berry";
-				this.restoreValue = 10;
+				this.restoreValue = 20;
 				break;
 			case 1: this.name = "GoldBerry";
 				this.restoreValue = 30;

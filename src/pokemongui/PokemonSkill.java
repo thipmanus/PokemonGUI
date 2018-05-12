@@ -41,6 +41,12 @@ public class PokemonSkill{
 			case "Water Pulse":
 				skill = new PokemonSkill("Water Pulse", 100);
 				break;
+                        case "Damp":
+				skill = new PokemonSkill("Damp", 10);
+				break;
+			case "Cloud Nine":
+				skill = new PokemonSkill("Cloud Nine", 100);
+				break;        
 		}
 		return skill;
 	}

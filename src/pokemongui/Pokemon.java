@@ -41,6 +41,9 @@ abstract class Pokemon{
 			this.health = this.maxHealth;
                 if(this.health < 0)
 			this.health = 0;
+                this.weight += 1;
+                if(this.weight > 80)
+			this.health = 0;
 	}
 
 	public void attack(Pokemon rival){
