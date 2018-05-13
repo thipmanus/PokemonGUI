@@ -21,7 +21,7 @@ import static pokemongui.Command.printPokemons;
  * @author rebor
  */
 public class Command extends JFrame {
-    JButton new1,new2,new3,eat1,eat2,eat3,move1,move2,move3,attack1,attack2,attack3;
+    JButton new1,new2,new3,eat1,eat2,eat3,move1,move2,move3,attack1,attack2,attack3,reset1,reset2,reset3;
     JPanel pTop,p1,pIM,p2,p3;
     JLabel image;
     Icon zero,pik1,pEat,pRun,pATK,koi1,kEat,kSwim,kATK,pd1,pdEat,pdSwim,pdATK;
@@ -53,6 +53,9 @@ public class Command extends JFrame {
         attack1 = new JButton("Attack");
         attack2 = new JButton("Attack");
         attack3 = new JButton("Attack");
+        reset1 = new JButton("Reset");
+        reset2 = new JButton("Reset");
+        reset3 = new JButton("Reset");
         area = new JTextArea("");
         zero = new ImageIcon(getClass().getResource("00.gif"));
         pik1 =  new ImageIcon(getClass().getResource("01.gif"));
@@ -79,20 +82,52 @@ public class Command extends JFrame {
         p2.setLayout(new FlowLayout());
         p3 = new JPanel();
         p3.setLayout(new FlowLayout());
+   
         pokemons.add(new Pikachu());
         pokemons.add(new Koiking());
         pokemons.add(new Psyduck());
         
         //event
+        reset1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 pokemons.get(0).recoveryALL();
+                 area.setText(printPokemons(pokemons,0));
+                 image.setIcon(pik1);
+                 
+               }
+            
+        });
+        
+        reset2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 pokemons.get(1).recoveryALL();
+                 area.setText(printPokemons(pokemons,1));
+                 image.setIcon(koi1);
+                 
+               }
+            
+        });
+        
+        reset3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 pokemons.get(2).recoveryALL();
+                 area.setText(printPokemons(pokemons,2));
+                 image.setIcon(pd1);
+                 
+               }
+            
+        });
         
         eat1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                Berry berry = new Berry(0);
-               for(Pokemon pokemon: pokemons)
-			pokemon.eat(berry);
+			pokemons.get(0).eat(berry);
                area.setText(printPokemons(pokemons,0));
-              image.setIcon(pEat);
+                    image.setIcon(pEat);
                }
             
         });
@@ -101,10 +136,10 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                Berry berry = new Berry(0);
-               for(Pokemon pokemon: pokemons)
-			pokemon.eat(berry);
+			pokemons.get(1).eat(berry);
                area.setText(printPokemons(pokemons,1));
               image.setIcon(kEat);
+               
                }
             
         });
@@ -113,10 +148,10 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                Berry berry = new Berry(0);
-               for(Pokemon pokemon: pokemons)
-			pokemon.eat(berry);
+			pokemons.get(2).eat(berry);
                area.setText(printPokemons(pokemons,2));
-              image.setIcon(pdEat);
+               image.setIcon(pdEat);
+               
                }
             
         });
@@ -125,7 +160,6 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-               for(Pokemon pokemon: pokemons)
 			pokemons.get(0).move();
                area.setText(printPokemons(pokemons,0));
               image.setIcon(pRun);
@@ -137,7 +171,6 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-               for(Pokemon pokemon: pokemons)
 			pokemons.get(1).move();
                area.setText(printPokemons(pokemons,1));
               image.setIcon(kSwim);
@@ -149,7 +182,6 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-               for(Pokemon pokemon: pokemons)
 			pokemons.get(2).move();
                area.setText(printPokemons(pokemons,2));
               image.setIcon(pdSwim);
@@ -169,6 +201,7 @@ public class Command extends JFrame {
                 p1.add(eat1);
                 p1.add(move1);
                 p1.add(attack1);
+                p1.add(reset1);
                 c.add(p1, BorderLayout.PAGE_END);
             }
         });
@@ -185,6 +218,7 @@ public class Command extends JFrame {
                 p2.add(eat2);
                 p2.add(move2);
                 p2.add(attack2);
+                p2.add(reset2);
                 c.add(p2, BorderLayout.PAGE_END);
             }
         });
@@ -201,6 +235,7 @@ public class Command extends JFrame {
                 p3.add(eat3);
                 p3.add(move3);
                 p3.add(attack3);
+                p3.add(reset3);
                 c.add(p3, BorderLayout.PAGE_END);
             }
         });
@@ -209,8 +244,7 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-               for(Pokemon pokemon: pokemons)
-			pokemons.get(0).reducedHealth(3);
+			pokemons.get(0).reducedHealth(5);
                area.setText(printPokemons(pokemons,0));
               image.setIcon(pATK);
                }
@@ -221,8 +255,7 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-               for(Pokemon pokemon: pokemons)
-			pokemons.get(1).reducedHealth(3);
+			pokemons.get(1).reducedHealth(5);
                area.setText(printPokemons(pokemons,1));
               image.setIcon(kATK);
                }
@@ -233,13 +266,13 @@ public class Command extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                
-               for(Pokemon pokemon: pokemons)
-			pokemons.get(2).reducedHealth(3);
+		pokemons.get(2).reducedHealth(5);
                area.setText(printPokemons(pokemons,2));
               image.setIcon(pdATK);
                }
             
         });
+        
         
         pTop.add(new1);
         p1.add(eat1);

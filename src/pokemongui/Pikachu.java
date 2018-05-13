@@ -24,7 +24,7 @@ public class Pikachu extends Pokemon implements Runnable{
 	}
 
 	public void run(){
-		this.reducedWeight(0.5);
+		this.reducedWeight(1);
 	}
 
 	public void walk(){

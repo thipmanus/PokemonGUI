@@ -20,7 +20,7 @@ public class Koiking extends Pokemon implements Swimmable {
 	}
 
     public void swim() {
-        this.reducedWeight(0.5);
+        this.reducedWeight(1);
     }
 
     public void move() {
