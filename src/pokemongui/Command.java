@@ -19,12 +19,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import static pokemongui.Command.printPokemons;
 import sun.audio.*;
-import java.io.*;
 
 /**
  *
  * @author rebor
  */
+
+
 public class Command extends JFrame {
     JButton new1,new2,new3,eat1,eat2,eat3,move1,move2,move3,attack1,attack2,attack3,reset1,reset2,reset3;
     JPanel pTop,p1,pIM,p2,p3;
@@ -305,9 +306,9 @@ public class Command extends JFrame {
         //set others
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
-        c.setSize(700,900);
-        setVisible(true);
-        
+        setSize(500,550);
+        setResizable(false);
+        setVisible(true);   
     }
 
     private void songs() {
