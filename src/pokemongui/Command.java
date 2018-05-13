@@ -42,7 +42,7 @@ public class Command extends JFrame {
     }
      
     public Command(){
-         super("PokemonGame");
+         super("PokemonsGame");
          songs();
          ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
         Container c = getContentPane();
@@ -202,14 +202,10 @@ public class Command extends JFrame {
             public void actionPerformed(ActionEvent e) {
               image.setIcon(pik1);  
               area.setText(printPokemons(pokemons,0));
-                p2.removeAll();  
-                p3.removeAll();
+
                 c.remove(p2);
                 c.remove(p3);
-                p1.add(eat1);
-                p1.add(move1);
-                p1.add(attack1);
-                p1.add(reset1);
+                
                 c.add(p1, BorderLayout.PAGE_END);
             }
         });
@@ -219,14 +215,10 @@ public class Command extends JFrame {
             public void actionPerformed(ActionEvent e) {
               image.setIcon(koi1);  
               area.setText(printPokemons(pokemons,1));
-                p1.removeAll();
-                p3.removeAll();
+
                 c.remove(p1);
                 c.remove(p3);
-                p2.add(eat2);
-                p2.add(move2);
-                p2.add(attack2);
-                p2.add(reset2);
+                
                 c.add(p2, BorderLayout.PAGE_END);
             }
         });
@@ -236,14 +228,9 @@ public class Command extends JFrame {
             public void actionPerformed(ActionEvent e) {
               image.setIcon(pd1);  
               area.setText(printPokemons(pokemons,2));
-                p1.removeAll();
-                p2.removeAll();
+
                 c.remove(p1);
-                c.remove(p2);
-                p3.add(eat3);
-                p3.add(move3);
-                p3.add(attack3);
-                p3.add(reset3);
+                c.remove(p2);                
                 c.add(p3, BorderLayout.PAGE_END);
             }
         });
@@ -286,16 +273,19 @@ public class Command extends JFrame {
         p1.add(eat1);
         p1.add(move1);
         p1.add(attack1);
+        p1.add(reset1);
         
         pTop.add(new2);
         p2.add(eat2);
         p2.add(move2);
         p2.add(attack2);
+        p2.add(reset2);
         
         pTop.add(new3);
         p3.add(eat3);
         p3.add(move3);
         p3.add(attack3);
+        p3.add(reset3);
         
         pIM.add(image);
         pTop.add(area);
