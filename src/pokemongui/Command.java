@@ -6,6 +6,9 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -15,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import static pokemongui.Command.printPokemons;
+import sun.audio.*;
+import java.io.*;
 
 /**
  *
@@ -34,8 +39,10 @@ public class Command extends JFrame {
                 +"/"+pokemons.get(member).maxHealth+"\n"+"Weight : "+
                 pokemons.get(member).getWeight();
     }
+     
     public Command(){
          super("PokemonGame");
+         songs();
          ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
@@ -301,5 +308,17 @@ public class Command extends JFrame {
         c.setSize(700,900);
         setVisible(true);
         
+    }
+
+    private void songs() {
+        InputStream in ;
+        try{
+            in = new FileInputStream(new File("D:\\COE PSU\\240-210 Java\\GUI\\PokemonGUI\\src\\pokemongui\\MPokemon.wav"));
+            AudioStream audio = new AudioStream(in);
+            AudioPlayer.player.start(audio);
+        }
+        catch(Exception e){
+            
+        }
     }
 }
